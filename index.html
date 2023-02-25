@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="text/javascript">
+    function genQR() {
+        let googleApi = 'https://chart.googleapis.com/chart?chf=bg,s,65432100&cht=qr&chs='
+        let userImg = document.getElementById('img');
+        let imgSizeOpt = document.getElementById('size').value;
+        let userInput = document.getElementById('qrtext').value;
+
+        if (userInput !== '' && imgSizeOpt=='100x100') {
+            userImg.src = `${googleApi}${imgSizeOpt}&chl=${userInput};`
+
+        }
+        else if(userInput !== '' && imgSizeOpt=='150x150'){
+            userImg.src = googleApi+imgSizeOpt+"&chl="+userInput;
+        }
+        else if(userInput !== '' && imgSizeOpt=='200x200'){
+            userImg.src = googleApi+imgSizeOpt+"&chl="+userInput;
+        }
+        else if(userInput !== '' && imgSizeOpt=='250x250'){
+            userImg.src = googleApi+imgSizeOpt+"&chl="+userInput;
+        }
+        else if(userInput !== '' && imgSizeOpt=='300x300'){
+            userImg.src = googleApi+imgSizeOpt+"&chl="+userInput;
+        }
+        else{
+            alert('Please Enter Text')
+        }
+    }
+</script>
+    <div class="grid">
+        <h2 align="center">Qr Code Generator</h2>
+        <center>
+        <img src="" id="img"></center>
+
+        <select id="size">
+            <option value="100x100">100x100</option>
+            <option value="150x150">150x150</option>
+            <option value="200x200">200x200</option>
+            <option value="250x250" selected>250x250</option>
+            <option value="300x300">300x300</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
+        <br><br>
+        <input type="submit" value="Generate" onclick="genQR()">
+        
+        
+    </div>
+</body>
+</html>
